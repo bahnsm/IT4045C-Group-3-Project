@@ -64,3 +64,9 @@ As a Spotify user, I want to be able to pause, play, rewind, and fast-forward au
 
 **Then** I can press the pause/play button on the Spotify PnP widget without switching focus from my current task.
 
+## Scrum Roles
+**Product Owner:** Marco Bahns
+
+**Scrum Master:** Ben Hicks
+
+**Dev Team:** Keshawn Thomas & Summer Gasaway
