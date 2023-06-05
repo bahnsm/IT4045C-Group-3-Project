@@ -1,6 +1,19 @@
 # Spotify Picture-in-Picture Application
 Enterprise App Development Group Project
 
+## Product Backlog
+### Sprint 0:
+Get Everything Set Up so the rest of the sprints move flawlessly and we are able to produce a good final product
+
+### Sprint 1:
+Make a pop-up window appear upon spotify minimizing
+
+### Sprint 2:
+Make pop-up window display a toggle-able play pause button and a skip and back button
+
+### Sprint 3:
+Make pop-up window display album cover song name and appear less intrusive
+
 ## Functional Requirements
 ### Requirement 1: View Currently-Playing Track
 ##### Scenario
