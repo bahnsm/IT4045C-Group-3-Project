@@ -1,14 +1,18 @@
 # Spotify Picture-in-Picture Application
 The Picture-in-Picture (PiP) project for Spotify aims to enhance the user experience by introducing a seamless multitasking feature that allows users to enjoy their favorite music while engaging in other activities on their device. This project leverages the power of Picture-in-Picture technology to bring a miniaturized, resizable player overlay to the Spotify application, enabling users to play pause skip and backtrack music while using other apps or browsing the web.
 
-***Key Features:
-**Resizable and Movable:** The overlay will be resizable and movable, giving users the flexibility to adjust its size and position according to their preferences and screen real estate. This feature ensures that users can seamlessly integrate the PiP player into their workflow without obstructing important content or interactions.
+###Key Features:
+#####**Resizable and Movable:** 
+The overlay will be resizable and movable, giving users the flexibility to adjust its size and position according to their preferences and screen real estate. This feature ensures that users can seamlessly integrate the PiP player into their workflow without obstructing important content or interactions.
 
-**Multitasking Support:** By implementing Picture-in-Picture, users will be able to listen to their favorite music on Spotify while simultaneously using other applications, such as messaging, browsing, or productivity tools. This feature enhances productivity and entertainment possibilities, allowing users to have a truly immersive and seamless multitasking experience.
+#####**Multitasking Support:** 
+By implementing Picture-in-Picture, users will be able to listen to their favorite music on Spotify while simultaneously using other applications, such as messaging, browsing, or productivity tools. This feature enhances productivity and entertainment possibilities, allowing users to have a truly immersive and seamless multitasking experience.
 
-**User-Friendly Controls:** The player will include intuitive controls, enabling users to effortlessly interact with the Spotify app without disrupting their primary tasks. 
+#####**User-Friendly Controls:** 
+The player will include intuitive controls, enabling users to effortlessly interact with the Spotify app without disrupting their primary tasks. 
 
-**Customization Options:** To cater to individual preferences, the PiP integration will offer customization options such as theme selection, transparency adjustments, and display preferences. These options will allow users to personalize their experience, ensuring it aligns with their aesthetic preferences and usage patterns.
+#####**Customization Options:** 
+To cater to individual preferences, the PiP integration will offer customization options such as theme selection, transparency adjustments, and display preferences. These options will allow users to personalize their experience, ensuring it aligns with their aesthetic preferences and usage patterns.
 
 ## Product Backlog
 ### Sprint 0:
