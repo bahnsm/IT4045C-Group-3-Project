@@ -12,7 +12,7 @@ Make a pop-up window appear upon spotify minimizing
 Make pop-up window display a toggle-able play pause button and a skip and back button
 
 ### Sprint 3:
-Make pop-up window display album cover song name and appear less intrusive
+Make pop-up window additionally display album cover song name and appear less intrusive
 
 ## Functional Requirements
 ### Requirement 1: View Currently-Playing Track
