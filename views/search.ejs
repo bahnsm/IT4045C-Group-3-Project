@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Spotify Miniplayer - Search Results</title>
+</head>
+<body>
+  <h1>Search Results</h1>
+
+  <% if (tracks.length > 0) { %>
+    <ul>
+      <% tracks.forEach((track) => { %>
+        <li>
+          <img src="<%= track.album.images[0].url %>" alt="Track Image">
+          <%= track.name %> - <%= track.artists[0].name %>
+          <a href="/play/<%= track.id %>">Play</a>
+        </li>
+      <% }) %>
+    </ul>
+  <% } else { %>
+    <p>No tracks found.</p>
+  <% } %>
+</body>
+</html>

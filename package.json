@@ -1,0 +1,18 @@
+{
+  "name": "it4045c-group-3-project",
+  "version": "1.0.0",
+  "description": "The Picture-in-Picture (PiP) project for Spotify aims to enhance the user experience by introducing a seamless multitasking feature that allows users to enjoy their favorite music while engaging in other activities on their device. This project leverages the power of Picture-in-Picture technology to bring a miniaturized, resizable player overlay to the Spotify application, enabling users to play pause skip and backtrack music while using other apps or browsing the web.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.1",
+    "spotify-web-api-node": "^5.0.2"
+  }
+}
