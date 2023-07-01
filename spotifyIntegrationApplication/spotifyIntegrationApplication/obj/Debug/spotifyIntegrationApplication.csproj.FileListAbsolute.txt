@@ -1,0 +1,11 @@
+C:\Users\summy\Documents\GitHub\IT4045C-Group-3-Project\spotifyIntegrationApplication\spotifyIntegrationApplication\bin\Debug\spotifyIntegrationApplication.exe.config
+C:\Users\summy\Documents\GitHub\IT4045C-Group-3-Project\spotifyIntegrationApplication\spotifyIntegrationApplication\bin\Debug\spotifyIntegrationApplication.exe
+C:\Users\summy\Documents\GitHub\IT4045C-Group-3-Project\spotifyIntegrationApplication\spotifyIntegrationApplication\bin\Debug\spotifyIntegrationApplication.pdb
+C:\Users\summy\Documents\GitHub\IT4045C-Group-3-Project\spotifyIntegrationApplication\spotifyIntegrationApplication\obj\Debug\spotifyIntegrationApplication.csproj.AssemblyReference.cache
+C:\Users\summy\Documents\GitHub\IT4045C-Group-3-Project\spotifyIntegrationApplication\spotifyIntegrationApplication\obj\Debug\spotifyIntegrationApplication.AuthenticationWindow.resources
+C:\Users\summy\Documents\GitHub\IT4045C-Group-3-Project\spotifyIntegrationApplication\spotifyIntegrationApplication\obj\Debug\spotifyIntegrationApplication.MainPage.resources
+C:\Users\summy\Documents\GitHub\IT4045C-Group-3-Project\spotifyIntegrationApplication\spotifyIntegrationApplication\obj\Debug\spotifyIntegrationApplication.Properties.Resources.resources
+C:\Users\summy\Documents\GitHub\IT4045C-Group-3-Project\spotifyIntegrationApplication\spotifyIntegrationApplication\obj\Debug\spotifyIntegrationApplication.csproj.GenerateResource.cache
+C:\Users\summy\Documents\GitHub\IT4045C-Group-3-Project\spotifyIntegrationApplication\spotifyIntegrationApplication\obj\Debug\spotifyIntegrationApplication.csproj.CoreCompileInputs.cache
+C:\Users\summy\Documents\GitHub\IT4045C-Group-3-Project\spotifyIntegrationApplication\spotifyIntegrationApplication\obj\Debug\spotifyIntegrationApplication.exe
+C:\Users\summy\Documents\GitHub\IT4045C-Group-3-Project\spotifyIntegrationApplication\spotifyIntegrationApplication\obj\Debug\spotifyIntegrationApplication.pdb
