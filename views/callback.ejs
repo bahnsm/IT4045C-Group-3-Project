@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Spotify Authentication Callback</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Spotify Authentication Callback</h1>
+  <% if (isPremium) { %>
+    <p>You are a premium user.</p>
+  <% } else { %>
+    <p>You are not a premium user.</p>
+  <% } %>
+  <p>You can now close this window and return to the application.</p>
+  <script>
+    // Automatically close the window after a few seconds
+    setTimeout(() => {
+      window.close();
+    }, 3000);
+  </script>
+</body>
+</html>
