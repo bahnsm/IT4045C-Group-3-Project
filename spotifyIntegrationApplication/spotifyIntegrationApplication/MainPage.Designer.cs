@@ -51,16 +51,18 @@ namespace spotifyIntegrationApplication
             this.ctrlPanel.Controls.Add(this.btnForward);
             this.ctrlPanel.Controls.Add(this.btnBack);
             this.ctrlPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ctrlPanel.Location = new System.Drawing.Point(0, 178);
+            this.ctrlPanel.Location = new System.Drawing.Point(0, 93);
+            this.ctrlPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ctrlPanel.Name = "ctrlPanel";
-            this.ctrlPanel.Size = new System.Drawing.Size(593, 120);
+            this.ctrlPanel.Size = new System.Drawing.Size(296, 62);
             this.ctrlPanel.TabIndex = 0;
             // 
             // btnPlay
             // 
-            this.btnPlay.Location = new System.Drawing.Point(308, 26);
+            this.btnPlay.Location = new System.Drawing.Point(154, 14);
+            this.btnPlay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(75, 62);
+            this.btnPlay.Size = new System.Drawing.Size(38, 32);
             this.btnPlay.TabIndex = 3;
             this.btnPlay.Text = "Play";
             this.btnPlay.UseVisualStyleBackColor = true;
@@ -68,9 +70,10 @@ namespace spotifyIntegrationApplication
             // 
             // btnPause
             // 
-            this.btnPause.Location = new System.Drawing.Point(202, 26);
+            this.btnPause.Location = new System.Drawing.Point(101, 14);
+            this.btnPause.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPause.Name = "btnPause";
-            this.btnPause.Size = new System.Drawing.Size(75, 62);
+            this.btnPause.Size = new System.Drawing.Size(38, 32);
             this.btnPause.TabIndex = 2;
             this.btnPause.Text = "Pause";
             this.btnPause.UseVisualStyleBackColor = true;
@@ -78,9 +81,10 @@ namespace spotifyIntegrationApplication
             // 
             // btnForward
             // 
-            this.btnForward.Location = new System.Drawing.Point(445, 26);
+            this.btnForward.Location = new System.Drawing.Point(222, 14);
+            this.btnForward.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnForward.Name = "btnForward";
-            this.btnForward.Size = new System.Drawing.Size(75, 62);
+            this.btnForward.Size = new System.Drawing.Size(38, 32);
             this.btnForward.TabIndex = 1;
             this.btnForward.Text = "Forward";
             this.btnForward.UseVisualStyleBackColor = true;
@@ -88,9 +92,10 @@ namespace spotifyIntegrationApplication
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(58, 26);
+            this.btnBack.Location = new System.Drawing.Point(29, 14);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(75, 62);
+            this.btnBack.Size = new System.Drawing.Size(38, 32);
             this.btnBack.TabIndex = 0;
             this.btnBack.Text = "Backward";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -103,9 +108,10 @@ namespace spotifyIntegrationApplication
             // lblSongTitle
             // 
             this.lblSongTitle.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblSongTitle.Location = new System.Drawing.Point(202, 33);
+            this.lblSongTitle.Location = new System.Drawing.Point(101, 17);
+            this.lblSongTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSongTitle.Name = "lblSongTitle";
-            this.lblSongTitle.Size = new System.Drawing.Size(380, 25);
+            this.lblSongTitle.Size = new System.Drawing.Size(190, 13);
             this.lblSongTitle.TabIndex = 1;
             this.lblSongTitle.Text = "songTitle";
             this.lblSongTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -114,9 +120,10 @@ namespace spotifyIntegrationApplication
             // lblArtistName
             // 
             this.lblArtistName.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblArtistName.Location = new System.Drawing.Point(202, 89);
+            this.lblArtistName.Location = new System.Drawing.Point(101, 46);
+            this.lblArtistName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblArtistName.Name = "lblArtistName";
-            this.lblArtistName.Size = new System.Drawing.Size(380, 25);
+            this.lblArtistName.Size = new System.Drawing.Size(190, 13);
             this.lblArtistName.TabIndex = 2;
             this.lblArtistName.Text = "ArtistName";
             this.lblArtistName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -125,23 +132,24 @@ namespace spotifyIntegrationApplication
             // imgAlbumArt
             // 
             this.imgAlbumArt.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.imgAlbumArt.Location = new System.Drawing.Point(28, 12);
+            this.imgAlbumArt.Location = new System.Drawing.Point(14, 6);
+            this.imgAlbumArt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.imgAlbumArt.Name = "imgAlbumArt";
-            this.imgAlbumArt.Size = new System.Drawing.Size(150, 150);
+            this.imgAlbumArt.Size = new System.Drawing.Size(75, 78);
             this.imgAlbumArt.TabIndex = 3;
             this.imgAlbumArt.TabStop = false;
             this.imgAlbumArt.BackgroundImageChanged += new System.EventHandler(this.imgAlbumArt_onAlbumArtChanged);
             // 
             // MainPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(593, 298);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(296, 155);
             this.Controls.Add(this.imgAlbumArt);
             this.Controls.Add(this.lblArtistName);
             this.Controls.Add(this.lblSongTitle);
             this.Controls.Add(this.ctrlPanel);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MainPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TopMost = true;

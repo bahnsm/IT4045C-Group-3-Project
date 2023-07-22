@@ -19,9 +19,7 @@ namespace spotifyIntegrationApplication
 
             //run a check to see if the user has authenticated 
             //if they have not, create a new window for the application
-
-            Application.Run(new AuthenticationWindow());
-            //Application.Run(new MainPage());
+            Application.Run(new MainPage());
         }
 
     }

@@ -31,7 +31,6 @@ namespace spotifyIntegrationApplication
         {
             this.authenticationBut = new System.Windows.Forms.Button();
             this.testingLbl = new System.Windows.Forms.Label();
-            this.updatePlayButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // authenticationBut
@@ -52,20 +51,9 @@ namespace spotifyIntegrationApplication
             this.testingLbl.Size = new System.Drawing.Size(0, 13);
             this.testingLbl.TabIndex = 1;
             // 
-            // updatePlayButton
-            // 
-            this.updatePlayButton.Location = new System.Drawing.Point(87, 150);
-            this.updatePlayButton.Name = "updatePlayButton";
-            this.updatePlayButton.Size = new System.Drawing.Size(94, 23);
-            this.updatePlayButton.TabIndex = 2;
-            this.updatePlayButton.Text = "Update Player";
-            this.updatePlayButton.UseVisualStyleBackColor = true;
-            this.updatePlayButton.Click += new System.EventHandler(this.updatePlayerClicked);
-            // 
             // AuthenticationWindow
             // 
             this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.updatePlayButton);
             this.Controls.Add(this.testingLbl);
             this.Controls.Add(this.authenticationBut);
             this.Name = "AuthenticationWindow";
@@ -78,6 +66,5 @@ namespace spotifyIntegrationApplication
 
         private System.Windows.Forms.Button authenticationBut;
         private System.Windows.Forms.Label testingLbl;
-        private System.Windows.Forms.Button updatePlayButton;
     }
 }

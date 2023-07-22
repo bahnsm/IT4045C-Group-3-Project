@@ -142,10 +142,5 @@ namespace spotifyIntegrationApplication
         {
             Task.Run(AuthenticateSpotify);
         }
-
-        private void updatePlayerClicked(object sender, EventArgs e)
-        {
-            //
-        }
     }
 }
