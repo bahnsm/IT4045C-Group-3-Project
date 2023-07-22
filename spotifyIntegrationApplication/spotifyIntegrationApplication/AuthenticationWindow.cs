@@ -4,110 +4,148 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SpotifyAPI.Web;
+using SpotifyAPI.Web.Auth;
+using Swan.Logging;
 
 namespace spotifyIntegrationApplication
 {
     public partial class AuthenticationWindow : Form
     {
-        private MainPage mainPage;
+        public MainPage _mainPage;
+        private static EmbedIOAuthServer server = null;
+        public CurrentlyPlaying currentlyPlaying;
+        private ISpotifyClient _spotifyClient = null;
+        private SpotifyClient playerSpotifyClient = null;
+        private string _currentTrackName;
+
         public AuthenticationWindow()
         {
+            _mainPage = new MainPage();
+            _mainPage.Hide();
             InitializeComponent();
         }
 
-        private void onAuthLoad(object sender, EventArgs e)
+        private async void AuthenticationWindow_Load(object sender, EventArgs e)
         {
-            // Set the form properties
-            this.Text = "Spotify Authentication";
-            this.Size = new Size(300, 200);
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-
-            // Set the background color
-            this.BackColor = Color.FromArgb(30, 215, 96);
-
-            // Create the logo label
-            Label logoLabel = new Label();
-            logoLabel.Text = "Spotify";
-            logoLabel.Font = new Font("Arial", 24, FontStyle.Bold);
-            logoLabel.ForeColor = Color.White;
-            logoLabel.TextAlign = ContentAlignment.MiddleCenter;
-            logoLabel.Dock = DockStyle.Top;
-            logoLabel.Height = 80;
-            this.Controls.Add(logoLabel);
-
-            // Create the username label
-            Label usernameLabel = new Label();
-            usernameLabel.Text = "Username";
-            usernameLabel.Font = new Font("Arial", 12, FontStyle.Bold);
-            usernameLabel.ForeColor = Color.White;
-            usernameLabel.AutoSize = true;
-            usernameLabel.Location = new Point(30, 100);
-            this.Controls.Add(usernameLabel);
-
-            // Create the username textbox
-            TextBox usernameTextbox = new TextBox();
-            usernameTextbox.Font = new Font("Arial", 12);
-            usernameTextbox.Location = new Point(130, 100);
-            usernameTextbox.Size = new Size(140, 25);
-            this.Controls.Add(usernameTextbox);
-
-            // Create the password label
-            Label passwordLabel = new Label();
-            passwordLabel.Text = "Password";
-            passwordLabel.Font = new Font("Arial", 12, FontStyle.Bold);
-            passwordLabel.ForeColor = Color.White;
-            passwordLabel.AutoSize = true;
-            passwordLabel.Location = new Point(30, 140);
-            this.Controls.Add(passwordLabel);
-
-            // Create the password textbox
-            TextBox passwordTextbox = new TextBox();
-            passwordTextbox.Font = new Font("Arial", 12);
-            passwordTextbox.Location = new Point(130, 140);
-            passwordTextbox.Size = new Size(140, 25);
-            passwordTextbox.PasswordChar = '*';
-            this.Controls.Add(passwordTextbox);
-
-            // Create the login button
-            Button loginButton = new Button();
-            loginButton.Text = "Login";
-            loginButton.Font = new Font("Arial", 12, FontStyle.Bold);
-            loginButton.ForeColor = Color.White;
-            loginButton.BackColor = Color.FromArgb(30, 215, 96);
-            loginButton.FlatStyle = FlatStyle.Flat;
-            loginButton.FlatAppearance.BorderSize = 0;
-            loginButton.Location = new Point(130, 180);
-            loginButton.Size = new Size(140, 30);
-            loginButton.Click += LoginButton_Click;
-            this.Controls.Add(loginButton);
+            await AuthenticateSpotify(); 
         }
 
-        private void LoginButton_Click(object sender, EventArgs e)
+        // ASYNC TASKS //
+
+        private async Task AuthenticateSpotify()
         {
-            // Perform authentication logic here
-            // For demonstration purposes, we'll assume the authentication was successful
+            // Setting the Spotify Client ID and Secret
+            string clientId = "6fe102abd91a4f578fdabae42348a017";
+            string clientSecret = "deded7d898d9457099b97e1bf691f004";
 
-            // Close the authentication window
-            this.Hide();
+            // creating and starting the authentication server
+            var server = new EmbedIOAuthServer(new Uri("http://localhost:3000/callback"), 3000);
+            await server.Start();
 
-            // Create the playback form
-            mainPage = new MainPage();
+            server.AuthorizationCodeReceived += OnAuthorizationCodeReceived;
+            server.ErrorReceived += OnErrorReceived;
 
-            // Subscribe to the FormClosed event to handle cleanup
-            mainPage.FormClosed += MainPage_FormClosed;
+            // get the url for user authentication
+            var request = new LoginRequest(server.BaseUri, clientId, LoginRequest.ResponseType.Code)
+            {
+                // setting the scopes
+                Scope = new List<string>() { Scopes.UserReadCurrentlyPlaying, Scopes.UserModifyPlaybackState }
+            };
+            BrowserUtil.Open(request.ToUri() );
 
-            // Show the playback form
-            mainPage.Show();
         }
 
-        private void MainPage_FormClosed(object sender, FormClosedEventArgs e)
+        private async Task OnAuthorizationCodeReceived(object sender, AuthorizationCodeResponse response)
         {
-            // Cleanup when the playback form is closed
-            this.Close();
+            string clientId = "6fe102abd91a4f578fdabae42348a017";
+            string clientSecret = "deded7d898d9457099b97e1bf691f004";
+
+            var config = SpotifyClientConfig.CreateDefault();
+            var tokenResponse = await new OAuthClient(config).RequestToken(
+                new AuthorizationCodeTokenRequest(
+                    clientId, clientSecret, response.Code, new Uri("http://localhost:3000/callback")
+                    )
+                );
+
+            var _spotifyClient = new SpotifyClient(tokenResponse.AccessToken);
+
+            await UpdatePlayer(_spotifyClient);
+            var holder = "";
+        }
+
+        private async Task UpdatePlayer(SpotifyClient spotifyClient)
+        {
+            playerSpotifyClient = spotifyClient;
+            var playing = await GetCurrentlyPlayingAsync(playerSpotifyClient);
+            
+            if(playing == null)
+            {
+                testingLbl.Text = "Nothing is currently playing";
+                return;
+            }
+
+            if (playing.Item.Type == ItemType.Track)
+            {
+                //await NotifyTrackUpdate(playing.Item as FullTrack);
+                FullTrack track = playing.Item as FullTrack;
+                MessageBox.Show($"Now playing: {track.Name}");
+                var holder = "";
+            }
+
+        }
+
+        private async Task<CurrentlyPlaying> GetCurrentlyPlayingAsync(SpotifyClient spotifyClient)
+        {
+            _spotifyClient = spotifyClient;
+            try
+            {
+                if (_spotifyClient is null)
+                {
+                    return null;
+                }
+                var playing = await _spotifyClient.Player.GetCurrentlyPlaying(new PlayerCurrentlyPlayingRequest(PlayerCurrentlyPlayingRequest.AdditionalTypes.All));
+                return playing;
+            }
+
+            catch (SpotifyAPI.Web.APIException e) 
+            {
+                Logger.Error(e.Response.Body.ToString());
+            }
+
+            return null;
+        }
+
+        private async Task NotifyTrackUpdate(FullTrack track)
+        {
+            if(track.Name == _currentTrackName) 
+            {
+                return;
+            }
+
+            _currentTrackName = track.Name;
+            testingLbl.Text = _currentTrackName;
+        }
+
+        private static async Task OnErrorReceived(object sender, string error, string state)
+        {
+            Console.WriteLine($"Aborting authorization, error received: {error}");
+            await server.Stop();
+        }
+
+        // BUTTON MANAGEMENT //
+        private void authenticationBut_Click(object sender, EventArgs e)
+        {
+            Task.Run(AuthenticateSpotify);
+        }
+
+        private void updatePlayerClicked(object sender, EventArgs e)
+        {
+            //
         }
     }
 }
