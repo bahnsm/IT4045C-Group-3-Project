@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>My Spotify Data</title>
+</head>
+<body>
+<h1>Welcome to your Spotify Data Viewer!</h1>
+
+<h2>Your Top Tracks</h2>
+<div th:if="${topTracks != null}">
+    <ul>
+        <li th:each="track : ${topTracks}">
+            <span th:text="${track.name}"></span> by <span th:text="${track.artist}"></span>
+        </li>
+    </ul>
+</div>
+
+<h2>Your Top Artists</h2>
+<div th:if="${topArtists != null}">
+    <ul>
+        <li th:each="artist : ${topArtists}">
+            <span th:text="${artist.name}"></span>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>
