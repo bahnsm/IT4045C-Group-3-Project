@@ -1,0 +1,21 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spotify User Login</title>
+</head>
+<body>
+    <button onclick="getSpotifyUserLogin()">Login with Spotify</button>
+    <script>
+        function getSpotifyUserLogin() {
+            fetch('/api/login')
+                .then(response => response.text())
+                .then(uri => {
+                    // Redirect the user to the Spotify API authorization page
+                    window.location.replace(uri);
+                })
+                .catch(error => console.error('Error fetching Spotify API authorization URI:', error));
+        }
+    </script>
+</body>
+</html>
