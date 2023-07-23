@@ -8,6 +8,7 @@ public class SpotifyTopTracksAndArtistsApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpotifyTopTracksAndArtistsApplication.class, args);
+		
 	}
 
 }
