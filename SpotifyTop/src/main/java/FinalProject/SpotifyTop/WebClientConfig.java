@@ -1,23 +1,64 @@
 package FinalProject.SpotifyTop;
 
+import se.michaelthelin.spotify.SpotifyApi;
+import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
+import se.michaelthelin.spotify.model_objects.credentials.ClientCredentials;
+import se.michaelthelin.spotify.requests.authorization.client_credentials.ClientCredentialsRequest;
+import org.apache.hc.core5.http.ParseException;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.oauth2.client.OAuth2AuthorizedClientService;
-import org.springframework.security.oauth2.client.web.reactive.function.client.ServletOAuth2AuthorizedClientExchangeFilterFunction;
-import org.springframework.web.reactive.function.client.WebClient;
+import java.io.IOException;
+import java.util.concurrent.CancellationException;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionException;
 
-@Configuration
 public class WebClientConfig {
+  private static final String clientId = "a1720c5508a7429bb488915d1bd94288";
+  private static final String clientSecret = "59ce06a6194849a48e75bcfb065305bf";
 
-    @Bean
-    WebClient webClient(OAuth2AuthorizedClientService clientService) {
-        ServletOAuth2AuthorizedClientExchangeFilterFunction oauth2 =
-                new ServletOAuth2AuthorizedClientExchangeFilterFunction(clientService);
-        return WebClient.builder()
-                .apply(oauth2.oauth2Configuration())
-                .build();
+  private static final SpotifyApi spotifyApi = new SpotifyApi.Builder()
+    .setClientId(clientId)
+    .setClientSecret(clientSecret)
+    .build();
+  private static final ClientCredentialsRequest clientCredentialsRequest = spotifyApi.clientCredentials()
+    .build();
+
+  public static void clientCredentials_Sync() {
+    try {
+      final ClientCredentials clientCredentials = clientCredentialsRequest.execute();
+
+      // Set access token for further "spotifyApi" object usage
+      spotifyApi.setAccessToken(clientCredentials.getAccessToken());
+
+      System.out.println("Expires in: " + clientCredentials.getExpiresIn());
+    } catch (IOException | SpotifyWebApiException | ParseException e) {
+      System.out.println("Error: " + e.getMessage());
     }
+  }
+
+  public static void clientCredentials_Async() {
+    try {
+      final CompletableFuture<ClientCredentials> clientCredentialsFuture = clientCredentialsRequest.executeAsync();
+
+      // Thread free to do other tasks...
+
+      // Example Only. Never block in production code.
+      final ClientCredentials clientCredentials = clientCredentialsFuture.join();
+
+      // Set access token for further "spotifyApi" object usage
+      spotifyApi.setAccessToken(clientCredentials.getAccessToken());
+
+      System.out.println("Expires in: " + clientCredentials.getExpiresIn());
+    } catch (CompletionException e) {
+      System.out.println("Error: " + e.getCause().getMessage());
+    } catch (CancellationException e) {
+      System.out.println("Async operation cancelled.");
+    }
+  }
+
+  public static void main(String[] args) {
+    clientCredentials_Sync();
+    clientCredentials_Async();
+  }
 }
 
 

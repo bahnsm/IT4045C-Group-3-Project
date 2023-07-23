@@ -1,0 +1,27 @@
+Authorization Code Flow
+Using the authorization code flow to retrieve an access token is necessary if the
+requests are bound to a specific user. Using this flow returns a refresh token, which can 
+be used to renew the access token before it expires. This is how it works:
+
+The authorization code flow requires a code, which is part of the redirectUri's query parameters 
+when the user has opened a custom URL in a browser and authorized the application.
+
+Example: AuthorizationCodeUri.java
+
+When the code has been retrieved, it can be used in another request to get an access 
+token as well as a refresh token.
+
+Example: AuthorizationCode.java
+
+Now, the refresh token in turn can be used in a loop to retrieve new access and refresh 
+tokens.
+
+Example: AuthorizationCodeRefresh.java
+
+When you've fetched an access and refresh token, you have to add them to your API properties 
+for automatic usage in requests. The implementer has to handle the access token's expiration.
+
+spotifyApi
+  .setAccessToken("<your_access_token>")
+  .setRefreshToken("<your_refresh_token>")
+  .build();
