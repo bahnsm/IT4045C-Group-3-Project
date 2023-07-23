@@ -28,8 +28,8 @@ public class AuthController {
             .setClientId("a1720c5508a7429bb488915d1bd94288")
             .setClientSecret("59ce06a6194849a48e75bcfb065305bf")
             .setRedirectUri(redirectUri)
-            .build();
-
+            .build(); 
+    
     @GetMapping("login")
     @ResponseBody
     public String spotifyLogin() {
