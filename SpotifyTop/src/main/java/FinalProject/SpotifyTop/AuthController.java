@@ -4,7 +4,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.view.RedirectView;
 
 import se.michaelthelin.spotify.SpotifyApi;
 import se.michaelthelin.spotify.SpotifyHttpManager;
@@ -23,11 +22,6 @@ public class AuthController {
             .setRedirectUri(redirectUri)
             .build();
 
-    @RequestMapping("/get-user-code")
-    public RedirectView getUserCode() {
-        return new RedirectView("index.html");
-    }
-
     @GetMapping("login")
     @ResponseBody
     public String spotifyLogin() {
@@ -40,5 +34,4 @@ public class AuthController {
         return uri.toString();
     }
 
-    // Rest of the code
 }

@@ -8,14 +8,16 @@
     <button onclick="getSpotifyUserLogin()">Login with Spotify</button>
     <script>
         function getSpotifyUserLogin() {
-            fetch('/api/login')
-                .then(response => response.text())
-                .then(uri => {
-                    // Redirect the user to the Spotify API authorization page
-                    window.location.replace(uri);
-                })
-                .catch(error => console.error('Error fetching Spotify API authorization URI:', error));
-        }
+
+            const getSpotifyUserLogin = () => {
+                fetch("http://localhost:8080/api/login")
+                    .then( (response) => response.text())
+                    .then(response => {
+                        window. location. replace(response);
+                    })
+                }
+            }
+5
     </script>
 </body>
 </html>
