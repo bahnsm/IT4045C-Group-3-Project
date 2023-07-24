@@ -1,68 +1,113 @@
-# Spotify Picture-in-Picture Application
-The Picture-in-Picture (PiP) project for Spotify aims to enhance the user experience by introducing a seamless multitasking feature that allows users to enjoy their favorite music while engaging in other activities on their device. This project leverages the power of Picture-in-Picture technology to bring a miniaturized, resizable player overlay to the Spotify application, enabling users to play pause skip and backtrack music while using other apps or browsing the web.
+# Spotify Pre-Wrapped
+Have you ever sat at home and wondered what are my top-played songs or artists?
+
+With Spotify pre-wrapped this becomes possible. We took inspiration from the infamous Spotify Wrapped which tells users their favorite artists or favorite tracks over the course of a year and implemented that technology into our bite-sized pre-wrapped version. By utilizing Spotify's new API and spring boot technology we are able to deliver a user-friendly experience that not only tells you what you want to know but  also offers an ability to limit the time frame of your top artists, and also the ability to search for songs on Spotify while offering real-time audio-visualization
+
 
 ## Key Features:
-### **Resizable and Movable:** 
-The overlay will be resizable and movable, giving users the flexibility to adjust its size and position according to their preferences and screen real estate. This feature ensures that users can seamlessly integrate the PiP player into their workflow without obstructing important content or interactions.
+### **User Authentication:** 
+The app allows users to log in or sign up using their Spotify credentials and access personalized data and playback features.
 
-### **Multitasking Support:** 
-By implementing Picture-in-Picture, users will be able to listen to their favorite music on Spotify while simultaneously using other applications, such as messaging, browsing, or productivity tools. This feature enhances productivity and entertainment possibilities, allowing users to have a truly immersive and seamless multitasking experience.
+### **Top Artists Analysis:** 
+The app analyzes the user's listening history on Spotify and presents a list of their top artists based on play counts, popularity, or other metrics.
 
-### **User-Friendly Controls:** 
-The player will include intuitive controls, enabling users to effortlessly interact with the Spotify app without disrupting their primary tasks. 
+### **Real-time Data Sync:** 
+The app is able to sync with the user's Spotify account regularly and constantly updates the list of top artists as the user's listening habits change.
 
-### **Customization Options:** 
-To cater to individual preferences, the PiP integration will offer customization options such as theme selection, transparency adjustments, and display preferences. These options will allow users to personalize their experience, ensuring it aligns with their aesthetic preferences and usage patterns.
+### **Search Functionality:** 
+The app allows users to search for songs, albums, artists, and playlists within the Spotify library.
+
+### **Song Playback:** 
+Users are able to access full-length songs and artist directories by simply clicking a button within the app.
+
+### **Playback Controls:** 
+Basic playback controls such as play, pause, and skip, are available to the users, using Spotify's playback functionality.
+
+### **Intuitive UI/UX:** 
+An easy-to-navigate and visually appealing interface is utilized to enhance the user experience.
+
+### **Audio Visualization:** 
+The app provides a visual representation of the currently playing song, such as album artwork or a music visualizer.
 
 ## Product Backlog
 ### Sprint 0:
 Get Everything Set Up so the rest of the sprints move flawlessly and we are able to produce a good final product
 
 ### Sprint 1:
-Make a pop-up window appear upon spotify minimizing
+User Authentication and User Interface
 
 ### Sprint 2:
-Make pop-up window display a toggle-able play pause button and a skip and back button
+Song Playback and Playback Controls
 
 ### Sprint 3:
-Make pop-up window additionally display album cover song name and appear less intrusive
+Top Artists Analysis and Search Functionality
 
 ## Functional Requirements
-### Requirement 1: View Currently-Playing Track
+### Functional Requirement 1: User Authentication
 ##### Scenario
-As a Spotify user, I want to be able to see the name of the song or podcast that's currently playing without switching back to the Spotify window.
+User: Sarah, a Spotify Premium user.
+
+Sarah opens the Spotify Pre-Wrapped application for the first time. She is greeted with a login screen where she can sign in using her 
+Spotify credentials. Sarah enters her Spotify credentials and the application verifies her credentials with Spotify's API. Once verified, 
+Sarah is redirected to the main application interface.
 
 #### Example 1
-**Given** that I'm listening to Spotify
+**Given** that Sarah is a Spotify Premium user
 
-**When** I open the Spotify Picture-in-Picture app
+**When** she enters her correct Spotify credentials
 
-**Then** I can see the audio track that's currently playing on the Spotify PnP widget.
+**Then** she should be authenticated and redirected to the main application interface.
 
 #### Example 2
-**Given** that the Spotify PnP app is active
+**Given** that Sarah is a Spotify Premium user
 
-**When** I want to view a window under the Spotify PnP widget
+**When** she enters incorrect Spotify credentials
 
-**Then** I can either minimize the widget or drag it to a more convenient location on my screen.
+**Then** she should receive an error message and an opportunity to try logging in again.
 
-### Requirement 2: Adjust Playback
+### Functional Requirement 2: Top Artists Analysis
 ##### Scenario
-As a Spotify user, I want to be able to pause, play, rewind, and fast-forward audio without switching back to the Spotify window.
+User: Mike, a Spotify Free user.
+
+Mike opens the Spotify Pre-Wrapped application and navigates to the 'Top Artists' section. The application retrieves 
+Mike's listening history from Spotify's API and analyses it to present a list of Mike's top artists based on his play counts, 
+popularity, and other metrics. Mike can now view and interact with this list of top artists.
 
 #### Example 1
-**Given** that I'm listening to Spotify and the Spotify PnP app is active
+**Given** that Mike is on the 'Top Artists' section of the Spotify Pre-Wrapped application
 
-**When** I want to skip or replay a portion of a track
+**When** he requests his top artists
 
-**Then** I can press a button to instantly rewind or fast-forward by 15 seconds, or click and drag along the progress bar to jump to a specific moment.
+**Then** the application should analyze his listening history and present a list of his top artists based on play counts, popularity, and other metrics.
 
 #### Example 2
-**Given** that I'm listening to Spotify and the Spotify PnP app is active
+**Given** that Mike is a Spotify Free user using the 'Top Artists' section of the Spotify Pre-Wrapped application
 
-**When** I want to pause or resume playback
+**When** his listening history does not have sufficient data (for example, he is a new user)
 
-**Then** I can press the pause/play button on the Spotify PnP widget without switching focus from my current task.
+**Then** the application should inform him that more listening history data is needed to generate a top artists list.
+
+### Functional Requirement 3: Song Search and Playback
+##### Scenario
+User: Emma, a Spotify Premium user.
+
+Emma wants to listen to a specific song while using the Spotify Pre-Wrapped application. She goes to the search bar and types the name of the song. 
+The application uses Spotify's search API to find and present a list of matching songs. Emma finds her desired song in the list and clicks on it. 
+The song starts playing and Emma can control the playback using the play, pause, and skip buttons.
+
+#### Example 1
+**Given** that Emma is a Spotify Premium user and she is in the search section of the Spotify Pre-Wrapped application
+
+**When** she types the name of a specific song and selects the song from the list of results
+
+**Then** the song should start playing and Emma should be able to control the playback using the play, pause, and skip buttons.
+
+#### Example 2
+**Given** that Emma is a Spotify Premium user and she is in the search section of the Spotify Pre-Wrapped application
+
+**When** she types the name of a song that doesn't exist or isn't available on Spotify
+
+**Then** the application should inform her that the song is not available.
 
 ## Scrum Roles
 **Product Owner:** Marco Bahns
