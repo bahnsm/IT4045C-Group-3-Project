@@ -28,38 +28,41 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class MusicController {
 
-	private final TopTrackService topTrackService;
-	private final TopArtistService topArtistService;
-	private final SavedTrackService savedTrackService;
-	private final SavedAlbumService savedAlbumService;
-	private final NewReleasedService newReleasedService;
-	private final RecentPlayesTrackService recentPlayedTrackService;
-	private final FeaturedPlaylistService featuredPlaylistService;
+    // Injects the TopTrackService and TopArtistService using constructor-based dependency injection
+    private final TopTrackService topTrackService;
+    private final TopArtistService topArtistService;
 
-	@GetMapping(value = ApiPath.TOP_TRACKS, produces = MediaType.TEXT_HTML_VALUE)
-	public String topTracksaHandler(@RequestParam("term") final Integer term, final HttpSession session,
-			final Model model) {
-		try {
-			model.addAttribute("tracks",
-					topTrackService.getTopTracks((String) session.getAttribute("accessToken"), term));
-			model.addAttribute("term", TermPeriodUtility.getTerm(term));
-		} catch (NoAccountDataException exception) {
-			return Template.NO_DATA;
-		}
-		return Template.TOP_TRACKS;
-	}
+    // Handles GET requests to the '/top-tracks' path with the specified media type
+    @GetMapping(value = ApiPath.TOP_TRACKS, produces = MediaType.TEXT_HTML_VALUE)
+    public String topTracksaHandler(@RequestParam("term") final Integer term, final HttpSession session,
+            final Model model) {
+        try {
+            // Fetches the top tracks from the TopTrackService and adds them to the model
+            model.addAttribute("tracks", topTrackService.getTopTracks((String) session.getAttribute("accessToken"), term));
+            // Adds the selected term (time period) to the model using TermPeriodUtility.getTerm() method
+            model.addAttribute("term", TermPeriodUtility.getTerm(term));
+        } catch (NoAccountDataException exception) {
+            // If there's no account data (e.g., no tracks), return the 'no-data' template
+            return Template.NO_DATA;
+        }
+        // Return the template for displaying the top tracks
+        return Template.TOP_TRACKS;
+    }
 
-	@GetMapping(value = ApiPath.TOP_ARTISTS, produces = MediaType.TEXT_HTML_VALUE)
-	public String topArtistsHandler(@RequestParam("term") final Integer term, final HttpSession session,
-			final Model model) {
-		try {
-			model.addAttribute("artists",
-					topArtistService.getTopArtists((String) session.getAttribute("accessToken"), term));
-			model.addAttribute("term", TermPeriodUtility.getTerm(term));
-		} catch (NoAccountDataException exception) {
-			return Template.NO_DATA;
-		}
-		return Template.TOP_ARTISTS;
-	}
-
+    // Handles GET requests to the '/top-artists' path with the specified media type
+    @GetMapping(value = ApiPath.TOP_ARTISTS, produces = MediaType.TEXT_HTML_VALUE)
+    public String topArtistsHandler(@RequestParam("term") final Integer term, final HttpSession session,
+            final Model model) {
+        try {
+            // Fetches the top artists from the TopArtistService and adds them to the model
+            model.addAttribute("artists", topArtistService.getTopArtists((String) session.getAttribute("accessToken"), term));
+            // Adds the selected term (time period) to the model using TermPeriodUtility.getTerm() method
+            model.addAttribute("term", TermPeriodUtility.getTerm(term));
+        } catch (NoAccountDataException exception) {
+            // If there's no account data (e.g., no artists), return the 'no-data' template
+            return Template.NO_DATA;
+        }
+        // Return the template for displaying the top artists
+        return Template.TOP_ARTISTS;
+    }
 }
