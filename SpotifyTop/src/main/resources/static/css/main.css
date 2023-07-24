@@ -1,0 +1,17 @@
+body{
+    color: black !important;
+}
+
+.button-action {
+    position: absolute;
+    margin-top: 80vh;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.button-action-2 {
+    position: absolute;
+    margin-top: 73vh;
+    left: 50%;
+    transform: translate(-50%);
+}
