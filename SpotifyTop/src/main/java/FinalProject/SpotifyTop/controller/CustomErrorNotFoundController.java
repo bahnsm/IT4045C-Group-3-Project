@@ -11,9 +11,11 @@ import finalproject.spotifytop.constant.Template;
 @Controller
 public class CustomErrorNotFoundController implements ErrorController {
 
-	@RequestMapping(value = ApiPath.ERROR, produces = MediaType.TEXT_HTML_VALUE)
-	public String handleError() {
-		return Template.ERROR;
-	}
+    // Handles requests to the '/error' path with the specified media type
+    @RequestMapping(value = ApiPath.ERROR, produces = MediaType.TEXT_HTML_VALUE)
+    public String handleError() {
+        // Returns the view template for the error page
+        return Template.ERROR;
+    }
 
 }
