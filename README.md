@@ -18,10 +18,7 @@ The app is able to sync with the user's Spotify account regularly and constantly
 The app allows users to search for songs, albums, artists, and playlists within the Spotify library.
 
 ### **Song Playback:** 
-Users are able to access full-length songs and artist directories by simply clicking a button within the app.
-
-### **Playback Controls:** 
-Basic playback controls such as play, pause, and skip, are available to the users, using Spotify's playback functionality.
+Users are able to access history of full-length songs and artist directories by simply clicking a button within the app.
 
 ### **Intuitive UI/UX:** 
 An easy-to-navigate and visually appealing interface is utilized to enhance the user experience.
@@ -37,7 +34,7 @@ Get Everything Set Up so the rest of the sprints move flawlessly and we are able
 User Authentication and User Interface
 
 ### Sprint 2:
-Song Playback and Playback Controls
+Button Controls and Profile implementation 
 
 ### Sprint 3:
 Top Artists Analysis and Search Functionality
