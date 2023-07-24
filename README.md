@@ -1,5 +1,8 @@
 # Spotify Pre-Wrapped
-The Picture-in-Picture (PiP) project for Spotify aims to enhance the user experience by introducing a seamless multitasking feature that allows users to enjoy their favorite music while engaging in other activities on their device. This project leverages the power of Picture-in-Picture technology to bring a miniaturized, resizable player overlay to the Spotify application, enabling users to play pause skip and backtrack music while using other apps or browsing the web.
+Have you ever sat at home and wondered what are my top-played songs or artists?
+
+With Spotify pre-wrapped this becomes possible. We took inspiration from the infamous Spotify Wrapped which tells users their favorite artists or favorite tracks over the course of a year and implemented that technology into our bite-sized pre-wrapped version. By utilizing Spotify's new API and spring boot technology we are able to deliver a user-friendly experience that not only tells you what you want to know but  also offers an ability to limit the time frame of your top artists, and also the ability to search for songs on Spotify while offering real-time audio-visualization
+
 
 ## Key Features:
 ### **User Authentication:** 
