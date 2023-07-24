@@ -19,18 +19,25 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class ItemSearchController {
 
-	private final SearchResultService searchResults;
 
-	@PostMapping(value = ApiPath.SEARCH, produces = MediaType.TEXT_HTML_VALUE)
-	public String showSearchResults(@RequestParam("searchQuery") final String searchQuery, final HttpSession session,
-			final Model model) {
-		String token = (String) session.getAttribute("accessToken");
-		try {
-			model.addAttribute("results", searchResults.search(token, searchQuery));
-		} catch (InvalidSearchException exception) {
-			return Template.SEARCH_ERROR;
-		}
-		return Template.SEARCH_RESULTS;
-	}
+    // Injects the SearchResultService using constructor-based dependency injection
+    private final SearchResultService searchResults;
+
+    // Handles POST requests to the '/search' path with the specified media type
+    @PostMapping(value = ApiPath.SEARCH, produces = MediaType.TEXT_HTML_VALUE)
+    public String showSearchResults(@RequestParam("searchQuery") final String searchQuery, final HttpSession session,
+            final Model model) {
+        // Retrieve the access token from the session
+        String token = (String) session.getAttribute("accessToken");
+        try {
+            // Perform the search operation using the SearchResultService and add the results to the model
+            model.addAttribute("results", searchResults.search(token, searchQuery));
+        } catch (InvalidSearchException exception) {
+            // If the search query is invalid, return the search error template
+            return Template.SEARCH_ERROR;
+        }
+        // Return the search results template
+        return Template.SEARCH_RESULTS;
+    }
 
 }
