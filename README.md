@@ -34,50 +34,80 @@ The app provides a visual representation of the currently playing song, such as 
 Get Everything Set Up so the rest of the sprints move flawlessly and we are able to produce a good final product
 
 ### Sprint 1:
-Make a pop-up window appear upon spotify minimizing
+User Authentication and User Interface
 
 ### Sprint 2:
-Make pop-up window display a toggle-able play pause button and a skip and back button
+Song Playback and Playback Controls
 
 ### Sprint 3:
-Make pop-up window additionally display album cover song name and appear less intrusive
+Top Artists Analysis and Search Functionality
 
 ## Functional Requirements
-### Requirement 1: View Currently-Playing Track
+### Functional Requirement 1: User Authentication
 ##### Scenario
-As a Spotify user, I want to be able to see the name of the song or podcast that's currently playing without switching back to the Spotify window.
+User: Sarah, a Spotify Premium user.
+
+Sarah opens the Spotify Pre-Wrapped application for the first time. She is greeted with a login screen where she can sign in using her 
+Spotify credentials. Sarah enters her Spotify credentials and the application verifies her credentials with Spotify's API. Once verified, 
+Sarah is redirected to the main application interface.
 
 #### Example 1
-**Given** that I'm listening to Spotify
+**Given** that Sarah is a Spotify Premium user
 
-**When** I open the Spotify Picture-in-Picture app
+**When** she enters her correct Spotify credentials
 
-**Then** I can see the audio track that's currently playing on the Spotify PnP widget.
+**Then** she should be authenticated and redirected to the main application interface.
 
 #### Example 2
-**Given** that the Spotify PnP app is active
+**Given** that Sarah is a Spotify Premium user
 
-**When** I want to view a window under the Spotify PnP widget
+**When** she enters incorrect Spotify credentials
 
-**Then** I can either minimize the widget or drag it to a more convenient location on my screen.
+**Then** she should receive an error message and an opportunity to try logging in again.
 
-### Requirement 2: Adjust Playback
+### Functional Requirement 2: Top Artists Analysis
 ##### Scenario
-As a Spotify user, I want to be able to pause, play, rewind, and fast-forward audio without switching back to the Spotify window.
+User: Mike, a Spotify Free user.
+
+Mike opens the Spotify Pre-Wrapped application and navigates to the 'Top Artists' section. The application retrieves 
+Mike's listening history from Spotify's API and analyses it to present a list of Mike's top artists based on his play counts, 
+popularity, and other metrics. Mike can now view and interact with this list of top artists.
 
 #### Example 1
-**Given** that I'm listening to Spotify and the Spotify PnP app is active
+**Given** that Mike is on the 'Top Artists' section of the Spotify Pre-Wrapped application
 
-**When** I want to skip or replay a portion of a track
+**When** he requests his top artists
 
-**Then** I can press a button to instantly rewind or fast-forward by 15 seconds, or click and drag along the progress bar to jump to a specific moment.
+**Then** the application should analyze his listening history and present a list of his top artists based on play counts, popularity, and other metrics.
 
 #### Example 2
-**Given** that I'm listening to Spotify and the Spotify PnP app is active
+**Given** that Mike is a Spotify Free user using the 'Top Artists' section of the Spotify Pre-Wrapped application
 
-**When** I want to pause or resume playback
+**When** his listening history does not have sufficient data (for example, he is a new user)
 
-**Then** I can press the pause/play button on the Spotify PnP widget without switching focus from my current task.
+**Then** the application should inform him that more listening history data is needed to generate a top artists list.
+
+### Functional Requirement 3: Song Search and Playback
+##### Scenario
+User: Emma, a Spotify Premium user.
+
+Emma wants to listen to a specific song while using the Spotify Pre-Wrapped application. She goes to the search bar and types the name of the song. 
+The application uses Spotify's search API to find and present a list of matching songs. Emma finds her desired song in the list and clicks on it. 
+The song starts playing and Emma can control the playback using the play, pause, and skip buttons.
+
+#### Example 1
+**Given** that Emma is a Spotify Premium user and she is in the search section of the Spotify Pre-Wrapped application
+
+**When** she types the name of a specific song and selects the song from the list of results
+
+**Then** the song should start playing and Emma should be able to control the playback using the play, pause, and skip buttons.
+
+#### Example 2
+**Given** that Emma is a Spotify Premium user and she is in the search section of the Spotify Pre-Wrapped application
+
+**When** she types the name of a song that doesn't exist or isn't available on Spotify
+
+**Then** the application should inform her that the song is not available.
 
 ## Scrum Roles
 **Product Owner:** Marco Bahns
