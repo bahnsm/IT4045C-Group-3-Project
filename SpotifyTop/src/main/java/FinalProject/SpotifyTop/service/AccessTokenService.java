@@ -40,7 +40,14 @@ public class AccessTokenService {
 		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(map, headers);
 
 		ResponseEntity<AccessTokenDto> response = restTemplate.postForEntity(URL, request, AccessTokenDto.class);
-		return response.getBody().getAccess_token();
+		AccessTokenDto accessTokenDto = response.getBody();
+
+		if (accessTokenDto != null) {
+		return accessTokenDto.getAccess_token();
+		} else {
+		// Handle the case when the response body is null
+		throw new IllegalStateException("Access token response body is null.");
+		}
 	}
 
 }
