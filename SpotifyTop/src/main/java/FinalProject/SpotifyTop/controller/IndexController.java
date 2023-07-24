@@ -14,12 +14,16 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class IndexController {
 
-	private final SpotifyUrlService spotifyUrlService;
+    // Injects the SpotifyUrlService using constructor-based dependency injection
+    private final SpotifyUrlService spotifyUrlService;
 
-	@GetMapping(value = "/", produces = MediaType.TEXT_HTML_VALUE)
-	public String showIndex(final Model model) {
-		model.addAttribute("url", spotifyUrlService.getAuthorizationURL());
-		return Template.INDEX;
-	}
+    // Handles GET requests to the root path ("/") with the specified media type
+    @GetMapping(value = "/", produces = MediaType.TEXT_HTML_VALUE)
+    public String showIndex(final Model model) {
+        // Add the authorization URL to the model for the view to access
+        model.addAttribute("url", spotifyUrlService.getAuthorizationURL());
+        // Return the view template for the index page
+        return Template.INDEX;
+    }
 
 }
