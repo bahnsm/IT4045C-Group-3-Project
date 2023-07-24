@@ -1,6 +1,11 @@
 body{
     color: black !important;
+    background-image: url(../img/pexels-sergei-bezborodov-14704462.jpg);
+    background-size: 1920px 1080px;
+    background-color: rgb(0, 209, 0);
 }
+
+
 
 .button-action {
     position: absolute;
