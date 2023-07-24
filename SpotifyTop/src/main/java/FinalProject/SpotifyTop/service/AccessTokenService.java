@@ -20,34 +20,44 @@ import lombok.RequiredArgsConstructor;
 @EnableConfigurationProperties(value = SpotifyAppConfigurationProperties.class)
 public class AccessTokenService {
 
-	private final SpotifyUrlService spotifyUrlService;
-	private final RestTemplate restTemplate;
-	private final SpotifyAppConfigurationProperties spotifyAppConfigurationProperties;
-	private static final String URL = "https://accounts.spotify.com/api/token";
+    // Injected dependencies using constructor-based dependency injection
+    private final SpotifyUrlService spotifyUrlService;
+    private final RestTemplate restTemplate;
+    private final SpotifyAppConfigurationProperties spotifyAppConfigurationProperties;
+    private static final String URL = "https://accounts.spotify.com/api/token";
 
-	public String getToken(String code) {
-		final var properties = spotifyAppConfigurationProperties.getApp();
-		HttpHeaders headers = new HttpHeaders();
-		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+    // Method to obtain an access token using the authorization code from Spotify API
+    public String getToken(String code) {
+        // Retrieve the Spotify application properties
+        final var properties = spotifyAppConfigurationProperties.getApp();
 
-		MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
-		map.add("client_id", properties.getClientId());
-		map.add("grant_type", "authorization_code");
-		map.add("code", code);
-		map.add("redirect_uri", properties.getRedirectUrl());
-		map.add("code_verifier", spotifyUrlService.getCodeVerifier());
+        // Set up HTTP headers for the request
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 
-		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(map, headers);
+        // Set up the request body (parameters) for the token retrieval
+        MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
+        map.add("client_id", properties.getClientId());
+        map.add("grant_type", "authorization_code");
+        map.add("code", code);
+        map.add("redirect_uri", properties.getRedirectUrl());
+        map.add("code_verifier", spotifyUrlService.getCodeVerifier());
 
-		ResponseEntity<AccessTokenDto> response = restTemplate.postForEntity(URL, request, AccessTokenDto.class);
-		AccessTokenDto accessTokenDto = response.getBody();
+        // Create an HTTP entity with the request body and headers
+        HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(map, headers);
 
-		if (accessTokenDto != null) {
-		return accessTokenDto.getAccess_token();
-		} else {
-		// Handle the case when the response body is null
-		throw new IllegalStateException("Access token response body is null.");
-		}
-	}
+        // Send a POST request to the Spotify API to obtain the access token
+        ResponseEntity<AccessTokenDto> response = restTemplate.postForEntity(URL, request, AccessTokenDto.class);
+        
+        // Get the response body containing the access token
+        AccessTokenDto accessTokenDto = response.getBody();
 
+        // Check if the access token is not null and return it, otherwise throw an exception
+        if (accessTokenDto != null) {
+            return accessTokenDto.getAccess_token();
+        } else {
+            // Handle the case when the response body is null
+            throw new IllegalStateException("Access token response body is null.");
+        }
+    }
 }
