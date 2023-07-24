@@ -1,11 +1,13 @@
 package finalproject.spotifytop;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration;
+
 
 @SpringBootApplication
-@EnableWebMvc
+@EnableAutoConfiguration(exclude = { ErrorMvcAutoConfiguration.class })
 public class SpotifyTopTracksAndArtistsApplication {
 
 	public static void main(String[] args) {
