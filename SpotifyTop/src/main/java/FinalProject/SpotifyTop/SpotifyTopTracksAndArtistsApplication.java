@@ -1,4 +1,4 @@
-package FinalProject.SpotifyTop;
+package finalproject.spotifytop;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

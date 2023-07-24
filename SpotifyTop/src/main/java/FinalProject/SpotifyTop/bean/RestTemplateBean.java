@@ -1,4 +1,4 @@
-package FinalProject.SpotifyTop.bean;
+package finalproject.spotifytop.bean;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -8,8 +8,8 @@
 		<version>3.1.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>FinalProject</groupId>
-	<artifactId>SpotifyTop</artifactId>
+	<groupId>finalproject</groupId>
+	<artifactId>spotifytop</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>SpotifyTopTracksAndArtists</name>
 	<description>Spotify top tracks and artists using spring boot</description>
