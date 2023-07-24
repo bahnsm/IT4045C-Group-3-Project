@@ -19,10 +19,19 @@ public class SpotifyUrlService {
 	private final SpotifyAppConfigurationProperties spotifyAppConfigurationProperties;
 	private String codeVerifier;
 
+	/**
+	 * Generates the authorization URL for Spotify API authentication.
+	 *
+	 * @return The authorization URL containing the necessary parameters for the authentication process.
+	 */
 	public String getAuthorizationURL() {
 		final var properties = spotifyAppConfigurationProperties.getApp();
+
+		// Generate a new code verifier for OAuth 2.0 PKCE (Proof Key for Code Exchange) flow
 		final var codeVerifier = CodeVerifierUtility.generate();
 		setCodeVerifier(codeVerifier);
+
+		// Construct the authorization URL with the required parameters
 		return "https://accounts.spotify.com/en/authorize?client_id=" + properties.getClientId()
 				+ "&response_type=code&redirect_uri=" + properties.getRedirectUrl()
 				+ "&code_challenge_method=S256&code_challenge=" + CodeChallengeUtility.generate(codeVerifier)
