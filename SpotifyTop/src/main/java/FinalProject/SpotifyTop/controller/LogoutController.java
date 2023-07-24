@@ -11,9 +11,13 @@ import finalproject.spotifytop.constant.ApiPath;
 @Controller
 public class LogoutController {
 
-	@GetMapping(value = ApiPath.LOGOUT, produces = MediaType.TEXT_HTML_VALUE)
-	public String logoutHandler(final HttpSession session) {
-		session.invalidate();
-		return "redirect:/?logout";
-	}
+    // Handles GET requests to the '/logout' path with the specified media type
+    @GetMapping(value = ApiPath.LOGOUT, produces = MediaType.TEXT_HTML_VALUE)
+    public String logoutHandler(final HttpSession session) {
+        // Invalidates the current session, effectively logging out the user
+        session.invalidate();
+
+        // Redirects the user to the index (home) page with a logout parameter in the URL
+        return "redirect:/?logout";
+    }
 }
