@@ -1,4 +1,4 @@
-package FinalProject.SpotifyTop.controller;
+package finalproject.spotifytop.controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -8,10 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import FinalProject.SpotifyTop.constant.ApiPath;
-import FinalProject.SpotifyTop.constant.Template;
-import FinalProject.SpotifyTop.exception.InvalidSearchException;
-import FinalProject.SpotifyTop.service.SearchResultService;
+import finalproject.spotifytop.constant.ApiPath;
+import finalproject.spotifytop.constant.Template;
+import finalproject.spotifytop.exception.InvalidSearchException;
+import finalproject.spotifytop.service.SearchResultService;
 
 import lombok.AllArgsConstructor;
 

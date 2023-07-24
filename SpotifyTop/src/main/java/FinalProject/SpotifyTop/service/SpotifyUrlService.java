@@ -1,11 +1,11 @@
-package FinalProject.SpotifyTop.service;
+package finalproject.spotifytop.service;
 
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Service;
 
-import FinalProject.SpotifyTop.properties.SpotifyAppConfigurationProperties;
-import FinalProject.SpotifyTop.utility.CodeChallengeUtility;
-import FinalProject.SpotifyTop.utility.CodeVerifierUtility;
+import finalproject.spotifytop.properties.SpotifyAppConfigurationProperties;
+import finalproject.spotifytop.utility.CodeChallengeUtility;
+import finalproject.spotifytop.utility.CodeVerifierUtility;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;

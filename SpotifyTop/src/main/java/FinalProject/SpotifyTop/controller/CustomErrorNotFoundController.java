@@ -1,12 +1,12 @@
-package FinalProject.SpotifyTop.controller;
+package finalproject.spotifytop.controller;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import FinalProject.SpotifyTop.constant.ApiPath;
-import FinalProject.SpotifyTop.constant.Template;
+import finalproject.spotifytop.constant.ApiPath;
+import finalproject.spotifytop.constant.Template;
 
 @Controller
 public class CustomErrorNotFoundController implements ErrorController {

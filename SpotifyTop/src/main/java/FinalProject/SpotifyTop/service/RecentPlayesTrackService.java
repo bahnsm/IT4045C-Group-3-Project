@@ -1,4 +1,4 @@
-package FinalProject.SpotifyTop.service;
+package finalproject.spotifytop.service;
 
 import java.util.LinkedHashMap;
 

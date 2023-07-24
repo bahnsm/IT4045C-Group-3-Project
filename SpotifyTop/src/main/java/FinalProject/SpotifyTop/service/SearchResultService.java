@@ -1,4 +1,4 @@
-package FinalProject.SpotifyTop.service;
+package finalproject.spotifytop.service;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -10,8 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import FinalProject.SpotifyTop.exception.InvalidSearchException;
-import FinalProject.SpotifyTop.utility.SearchQueryFormatter;
+import finalproject.spotifytop.exception.InvalidSearchException;
+import finalproject.spotifytop.utility.SearchQueryFormatter;
 
 import lombok.RequiredArgsConstructor;
 

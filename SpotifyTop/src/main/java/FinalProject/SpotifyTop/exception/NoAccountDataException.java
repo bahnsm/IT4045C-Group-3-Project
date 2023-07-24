@@ -1,4 +1,4 @@
-package FinalProject.SpotifyTop.exception;
+package finalproject.spotifytop.exception;
 
 public class NoAccountDataException extends RuntimeException {
 

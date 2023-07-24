@@ -1,4 +1,4 @@
-package FinalProject.SpotifyTop.dto;
+package finalproject.spotifytop.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

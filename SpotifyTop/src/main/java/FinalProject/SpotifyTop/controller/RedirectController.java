@@ -1,4 +1,4 @@
-package FinalProject.SpotifyTop.controller;
+package finalproject.spotifytop.controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -7,11 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import FinalProject.SpotifyTop.constant.ApiPath;
-import FinalProject.SpotifyTop.constant.Template;
-import FinalProject.SpotifyTop.exception.NoTrackPlayingException;
-import FinalProject.SpotifyTop.service.CurrentPlayingService;
-import FinalProject.SpotifyTop.service.ProfileDetailService;
+import finalproject.spotifytop.constant.ApiPath;
+import finalproject.spotifytop.constant.Template;
+import finalproject.spotifytop.exception.NoTrackPlayingException;
+import finalproject.spotifytop.service.CurrentPlayingService;
+import finalproject.spotifytop.service.ProfileDetailService;
 
 import lombok.AllArgsConstructor;
 

@@ -1,11 +1,11 @@
-package FinalProject.SpotifyTop.properties;
+package finalproject.spotifytop.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import lombok.Data;
 
 @Data
-@ConfigurationProperties(prefix = "FinalProject.SpotifyTop")
+@ConfigurationProperties(prefix = "finalproject.spotifytop")
 public class SpotifyAppConfigurationProperties {
 
 	private App app = new App();

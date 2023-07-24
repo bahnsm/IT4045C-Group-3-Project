@@ -1,4 +1,4 @@
-package FinalProject.SpotifyTop.controller;
+package finalproject.spotifytop.controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -8,19 +8,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import FinalProject.SpotifyTop.constant.ApiPath;
-import FinalProject.SpotifyTop.constant.Template;
-import FinalProject.SpotifyTop.exception.NoAccountDataException;
-import FinalProject.SpotifyTop.exception.NoAlbumSavedException;
-import FinalProject.SpotifyTop.exception.NoTrackSavedException;
-import FinalProject.SpotifyTop.service.FeaturedPlaylistService;
-import FinalProject.SpotifyTop.service.NewReleasedService;
-import FinalProject.SpotifyTop.service.RecentPlayesTrackService;
-import FinalProject.SpotifyTop.service.SavedAlbumService;
-import FinalProject.SpotifyTop.service.SavedTrackService;
-import FinalProject.SpotifyTop.service.TopArtistService;
-import FinalProject.SpotifyTop.service.TopTrackService;
-import FinalProject.SpotifyTop.utility.TermPeriodUtility;
+import finalproject.spotifytop.constant.ApiPath;
+import finalproject.spotifytop.constant.Template;
+import finalproject.spotifytop.exception.NoAccountDataException;
+import finalproject.spotifytop.exception.NoAlbumSavedException;
+import finalproject.spotifytop.exception.NoTrackSavedException;
+import finalproject.spotifytop.service.FeaturedPlaylistService;
+import finalproject.spotifytop.service.NewReleasedService;
+import finalproject.spotifytop.service.RecentPlayesTrackService;
+import finalproject.spotifytop.service.SavedAlbumService;
+import finalproject.spotifytop.service.SavedTrackService;
+import finalproject.spotifytop.service.TopArtistService;
+import finalproject.spotifytop.service.TopTrackService;
+import finalproject.spotifytop.utility.TermPeriodUtility;
 
 import lombok.AllArgsConstructor;
 

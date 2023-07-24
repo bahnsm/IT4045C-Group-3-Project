@@ -1,4 +1,4 @@
-package FinalProject.SpotifyTop.controller;
+package finalproject.spotifytop.controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -6,7 +6,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import FinalProject.SpotifyTop.constant.ApiPath;
+import finalproject.spotifytop.constant.ApiPath;
 
 @Controller
 public class LogoutController {

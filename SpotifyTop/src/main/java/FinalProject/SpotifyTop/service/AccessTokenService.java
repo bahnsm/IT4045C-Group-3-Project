@@ -1,4 +1,4 @@
-package FinalProject.SpotifyTop.service;
+package finalproject.spotifytop.service;
 
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.http.HttpEntity;
@@ -10,8 +10,8 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
-import FinalProject.SpotifyTop.dto.AccessTokenDto;
-import FinalProject.SpotifyTop.properties.SpotifyAppConfigurationProperties;
+import finalproject.spotifytop.dto.AccessTokenDto;
+import finalproject.spotifytop.properties.SpotifyAppConfigurationProperties;
 
 import lombok.RequiredArgsConstructor;
 

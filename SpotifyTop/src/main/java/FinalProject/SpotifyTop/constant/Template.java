@@ -1,4 +1,4 @@
-package FinalProject.SpotifyTop.constant;
+package finalproject.spotifytop.constant;
 
 public class Template {
 

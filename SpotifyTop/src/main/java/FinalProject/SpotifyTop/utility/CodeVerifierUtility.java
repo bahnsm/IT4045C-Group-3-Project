@@ -1,4 +1,4 @@
-package FinalProject.SpotifyTop.utility;
+package finalproject.spotifytop.utility;
 
 import java.security.SecureRandom;
 import java.util.Base64;

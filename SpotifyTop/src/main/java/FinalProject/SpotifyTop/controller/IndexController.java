@@ -1,12 +1,12 @@
-package FinalProject.SpotifyTop.controller;
+package finalproject.spotifytop.controller;
 
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import FinalProject.SpotifyTop.constant.Template;
-import FinalProject.SpotifyTop.service.SpotifyUrlService;
+import finalproject.spotifytop.constant.Template;
+import finalproject.spotifytop.service.SpotifyUrlService;
 
 import lombok.AllArgsConstructor;
 

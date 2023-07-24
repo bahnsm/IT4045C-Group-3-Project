@@ -1,4 +1,4 @@
-package FinalProject.SpotifyTop.utility;
+package finalproject.spotifytop.utility;
 
 public class SearchQueryFormatter {
 
