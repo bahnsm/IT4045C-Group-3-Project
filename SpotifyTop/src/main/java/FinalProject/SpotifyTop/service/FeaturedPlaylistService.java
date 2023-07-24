@@ -2,6 +2,7 @@ package finalproject.spotifytop.service;
 
 import java.util.LinkedHashMap;
 
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -15,18 +16,21 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class FeaturedPlaylistService {
 
-	private final RestTemplate restTemplate;
-	private static final String URL = "https://api.spotify.com/v1/browse/featured-playlists?limit=50";
+    private final RestTemplate restTemplate;
+    private static final String URL = "https://api.spotify.com/v1/browse/featured-playlists?limit=50";
 
-	public Object getPlaylists(String token) {
-		HttpHeaders headers = new HttpHeaders();
-		headers.set("Authorization", "Bearer " + token);
+    public LinkedHashMap<String, Object> getPlaylists(String token) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", "Bearer " + token);
 
-		HttpEntity<String> entity = new HttpEntity<>("paramters", headers);
+        HttpEntity<String> entity = new HttpEntity<>("parameters", headers);
 
-		ResponseEntity<Object> response = restTemplate.exchange(URL, HttpMethod.GET, entity, Object.class);
-		LinkedHashMap result = (LinkedHashMap) response.getBody();
+        ResponseEntity<LinkedHashMap<String, Object>> response = restTemplate.exchange(URL, HttpMethod.GET, entity, new ParameterizedTypeReference<>() {});
 
-		return result;
-	}
+        // Retrieve the response body directly as LinkedHashMap<String, Object>
+        LinkedHashMap<String, Object> result = response.getBody();
+
+        return result;
+    }
 }
+
