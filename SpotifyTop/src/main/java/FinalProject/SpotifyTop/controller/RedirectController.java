@@ -19,23 +19,30 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class RedirectController {
 
-	private final ProfileDetailService userDetails;
-	private final CurrentPlayingService currentPlaying;
+    // Injects the ProfileDetailService and CurrentPlayingService using constructor-based dependency injection
+    private final ProfileDetailService userDetails;
+    private final CurrentPlayingService currentPlaying;
 
-	@GetMapping(value = ApiPath.REDIRECT, produces = MediaType.TEXT_HTML_VALUE)
-	public String redirectToCallbackSuccess(final HttpSession session, final Model model) {
+    // Handles GET requests to the '/redirect' path with the specified media type
+    @GetMapping(value = ApiPath.REDIRECT, produces = MediaType.TEXT_HTML_VALUE)
+    public String redirectToCallbackSuccess(final HttpSession session, final Model model) {
+        // Retrieve the access token from the session
+        String token = (String) session.getAttribute("accessToken");
 
-		String token = (String) session.getAttribute("accessToken");
-		model.addAttribute("accessToken", token);
-		model.addAttribute("userName", userDetails.getUsername(token));
+        // Add the access token and the associated username to the model
+        model.addAttribute("accessToken", token);
+        model.addAttribute("userName", userDetails.getUsername(token));
 
-		try {
-			model.addAttribute("currentPlaying", currentPlaying.getCurrentPlaying(token));
-			model.addAttribute("display", 1);
-		} catch (NoTrackPlayingException exception) {
-			model.addAttribute("display", 0);
-		}
-		return Template.CALLBACK_SUCCESS;
-	}
+        try {
+            // Try to retrieve information about the currently playing track and add it to the model
+            model.addAttribute("currentPlaying", currentPlaying.getCurrentPlaying(token));
+            model.addAttribute("display", 1); // Set a flag to indicate that a track is currently playing
+        } catch (NoTrackPlayingException exception) {
+            // If there's no track currently playing, set the flag to indicate that and handle the exception
+            model.addAttribute("display", 0);
+        }
 
+        // Return the success template (callback success page)
+        return Template.CALLBACK_SUCCESS;
+    }
 }
