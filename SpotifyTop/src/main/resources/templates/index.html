@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Spotify Data</title>
+    <title>Your Spotify Wrapped</title>
     <!-- Font Awesome -->
 <!--     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     Bootstrap core CSS 
@@ -18,16 +18,13 @@
 </head>
 
 <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+    <nav class="header">
         <div class="container">
-            <a class="navbar-brand h1-responsive display-4 heading-main" href="#">Spotify Data</a>
+            <a class="mainHeader" href="#">Welcome to Your Spotify Wrapped</a>
         </div>
     </nav>
-    <div class="justify-content-center text-center button-action">
-        <a type="button" th:href="@{${url}}" class="btn btn-success btn-custom btn-lg btn-rounded waves-effect">Get Started</a>
-        <div>
-            <a class="text-white" type="button" data-toggle="modal" data-target="#modalDetails" style="text-decoration: underline">What It Does?</a>
-        </div>
+    <div class="center-content login-container">
+        <a type="button" th:href="@{${url}}" class="login-btn">Login</a>
     </div>
 
     <!-- jQuery -->
