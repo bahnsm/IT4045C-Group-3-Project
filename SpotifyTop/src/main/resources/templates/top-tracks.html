@@ -8,42 +8,41 @@
     <title>Spotify Data</title>
     <!-- Font Awesome -->
 <!--     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-    Bootstrap core CSS 
+    Bootstrap core CSS  -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-     Material Design Bootstrap 
+     <!--Material Design Bootstrap 
     <link rel="stylesheet" href="css/mdb.min.css"> -->
     <!-- Your custom styles (optional) -->
     <link rel="stylesheet" href="css/main.css">
 
 </head>
 
-<body class="body-bg">
+<body class="search-results-body">
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
-    
         <div class="container">
-            <a class="navbar-brand h1-responsive display-4 heading-main text-white">Spotify Data</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapseNav"
-   				 aria-controls="collapseNav" aria-expanded="false" aria-label="Toggle navigation">
-    		<span class="navbar-toggler-icon"></span>
-  			</button>
-  			 <div class="collapse navbar-collapse justify-content-end" id="collapseNav">
+            <a class="navbar-brand h1-responsive display-4 heading-main text-white logout-btn go-back-btn" type="button" href="/redirect">Go Back</a>
             <form class="form-inline pb-0" action="search" method="post">
                 <div class="md-form my-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search..." name="searchQuery">
+                    <input class="form-control mr-sm-2 search-bar" type="text" placeholder="Search for something..." name="searchQuery">
                 </div>
             </form>
         </div>
     </nav>
 
+    <body class="search-results-body">
+        <div class="">
+            <nav class="header">
+                <a class="mainHeader">Top Tracks</a>
+                <div class="nav-bar-interactables">
+                    <a href="/logout" type="button" class="logout-btn">Log Out</a>
+                </div>
+            </nav>
+        </div>    
+
     <div class="container container-username">
         <div class="row">
-        	<div class="col-12 text-center">
-            <h3 class="h2 container-username-heading mx-auto">Top Tracks</h3></div>
             <div class="col-12 text-center">
-                <h3 class="h5 text-success mx-auto mt-1" th:text="${term}" style="font-family: anton;text-shadow: 1px 1px black">Past 6 Months</h3>
-            </div>
-            <div class="col-12 text-center mt-1">
-            <a class="btn btn-success btn-rounded btn-sm mx-auto" type="button" href="/redirect">Go Back</a>
+                <h3 class="h5 text-success mx-auto mt-1 search-results-header" th:text="${term}">Past 6 Months</h3>
             </div>
         </div>
         <hr class="hr bg-success">
