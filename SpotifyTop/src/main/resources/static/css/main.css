@@ -14,6 +14,25 @@ body {
     background-size: cover;
 }
 
+.navbar{
+    position: absolute !important;
+}
+
+.row{
+    margin-top: 15px;
+}
+
+.search-results-body{
+    background-size: contain !important;
+}
+
+.search-results-header{
+    color: #fff !important;
+    font-family: Arial, sans-serif;
+    font-size: 2em;
+    text-decoration: none;
+}
+
 .bg-image{
     background-image: url(../img/pexels-sergei-bezborodov-14704462.jpg);
     background-repeat: no-repeat;
@@ -130,6 +149,10 @@ body {
     color: #fff;
   }
 
+.go-back-btn{
+    align-self: flex-start;
+}
+
 .login-container{
     padding-top: 20px;
 }
@@ -162,7 +185,7 @@ body {
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
     font-size: 16px;
-    text-decoration: none;
+    text-decoration: none !important;
   }
   
   .logout-btn:hover {
