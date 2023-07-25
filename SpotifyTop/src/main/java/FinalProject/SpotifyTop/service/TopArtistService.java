@@ -15,6 +15,7 @@ import finalproject.spotifytop.exception.NoAccountDataException;
 
 import lombok.RequiredArgsConstructor;
 
+
 @Service
 @RequiredArgsConstructor
 public class TopArtistService {
