@@ -12,19 +12,18 @@
 </head>
 
 <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+    <nav class="header">
         <div class="container">
-            <a class="navbar-brand h1-responsive display-4 heading-main" href="#">Spotify Data</a>
+            <a class="navbar-brand h1-responsive display-4 heading-main text-white logout-btn go-back-btn" type="button" href="/redirect">Go Back</a>
+            <a class="mainHeader">Your Account Seems Fairly New</a>
         </div>
     </nav>
     <div class="justify-content-center text-center error-details">
         <div class="container">
-            <h1 class="h3-responsive access-denied-sub-heading">Ummm... Your Account Seems Fairly New</h1>
+            <h2 class="mainHeader error-header">You don't have enough information to properly gather data</h2>
+            <h3 class="error-header">Please play some music at least once to add more data</h3>
         </div>
     </div>
-    <div class="justify-content-center text-center button-action-2">
-        <a type="button" th:href="@{'/redirect'}" class="btn btn-success btn-custom btn-lg btn-rounded waves-effect">Go Back</a></div>
-
 
 
     <!-- jQuery -->

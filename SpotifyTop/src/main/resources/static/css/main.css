@@ -33,6 +33,10 @@ body {
     text-decoration: none;
 }
 
+.error-header{
+  margin-top: 15px;
+}
+
 .bg-image{
     background-image: url(../img/pexels-sergei-bezborodov-14704462.jpg);
     background-repeat: no-repeat;
