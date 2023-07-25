@@ -1,0 +1,233 @@
+/* Normalize CSS for consistent rendering */
+body, h1, h2, button, .mainHeader {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+body {
+    background-color: #1e1e1e;
+    color: #fff;
+    line-height: 1.6;
+    background-image: url(../img/background-pottify.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.navbar{
+    position: absolute !important;
+}
+
+.row{
+    margin-top: 15px;
+}
+
+.search-results-body{
+    background-size: contain !important;
+}
+
+.search-results-header{
+    color: #fff !important;
+    font-family: Arial, sans-serif;
+    font-size: 2em;
+    text-decoration: none;
+}
+
+.bg-image{
+    background-image: url(../img/pexels-sergei-bezborodov-14704462.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px);
+}
+
+.nav-bar-interactables{
+    display: flex;
+    justify-content: space-around;
+    max-width: 900px;
+    margin: 0 auto;
+}
+  
+.center-content{
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+}
+
+  .header {
+    background-color: #1db954;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .wrapper {
+    display: flex;
+    justify-content: space-around;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .top-tracks, .top-artists {
+    background-color: #282828;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 45%;
+  }
+
+  .mainHeader{
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 2em;
+    text-decoration: none;
+  }
+  
+  h2 {
+    color: #1db954;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropbtn {
+    background-color: #1db954;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #282828;
+    min-width: 160px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: #fff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #1db954;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .search-bar {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #383838;
+    color: #fff;
+  }
+
+.go-back-btn{
+    align-self: flex-start;
+}
+
+.login-container{
+    padding-top: 20px;
+}
+
+  .login-btn {
+    background-color: transparent;
+    color: #1db954;
+    border: 2px solid #1db954;
+    border-radius: 3px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 30px;
+    margin-right: 10px;
+    align-content: center;
+    text-decoration: none;
+  }
+  
+  .login-btn:hover {
+    background-color: #1db954;
+    color: #fff;
+  }
+  
+  .logout-btn {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 3px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 16px;
+    text-decoration: none !important;
+  }
+  
+  .logout-btn:hover {
+    background-color: #fff;
+    color: #1db954;
+  }
+  
+  /* Additional Styles for Modern Look */
+  .wrapper {
+    display: flex;
+    justify-content: space-around;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .top-tracks, .top-artists {
+    margin: 10px;
+    opacity: 0; /* Hide initially for the fade-in effect */
+    transition: opacity 0.5s ease; /* Add transition effect for opacity */
+  }
+  
+  .fade-in {
+    opacity: 1; /* Make the elements visible after the content is loaded */
+  }
+  
+  @media screen and (max-width: 600px) {
+    .top-tracks, .top-artists {
+      width: 100%;
+    }
+  }
+  
+
+.button-action {
+    position: absolute;
+    margin-top: 80vh;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.button-action-2 {
+    position: absolute;
+    margin-top: 73vh;
+    left: 50%;
+    transform: translate(-50%);
+}

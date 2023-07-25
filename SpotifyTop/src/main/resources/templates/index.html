@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Your Spotify Pre-Wrapped</title>
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+
+<body>
+    <div class="bg-image"></div>
+    <nav class="header">
+        <div class="container">
+            <a class="mainHeader" href="#">Welcome to Your Spotify Pre-Wrapped</a>
+        </div>
+    </nav>
+    <div class="center-content login-container">
+        <a type="button" th:href="@{${url}}" class="login-btn">Login</a>
+    </div>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- Your custom scripts (optional) -->
+    <script type="text/javascript">
+    </script>
+    <div th:if="${param.logout}">
+        <script type="text/javascript">
+            toastr["success"]("Successfully Logged Out!");
+        </script>
+    </div>
+</body>
+</html>
